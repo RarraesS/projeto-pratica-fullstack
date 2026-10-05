@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application' // 1. Adiciona o plugin de aplicação
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+// 2. Define explicitamente qual classe possui o método main
+application {
+    mainClass = 'org.example.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'com.mysql:mysql-connector-j:8.4.0'
+}
+
+test {
+    useJUnitPlatform()
+}
